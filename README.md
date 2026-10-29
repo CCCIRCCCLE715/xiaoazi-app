@@ -43,7 +43,11 @@ python3 scripts/check_native.py
 
 构建脚本读取 `project/dist-standalone`，输出 `android/build/xiaoazi-0.7.10-unsigned.apk`。它使用 SDK 的 aapt2、D8 和 zipalign；本仓库没有 Gradle 工程或 Gradle Wrapper。若构建工具不在默认目录，可设置 `ANDROID_BUILD_TOOLS` 为该目录的完整路径。
 
-安装 APK 前需要签名。设置 `XIAOAZI_KEYSTORE`、`XIAOAZI_KEY_ALIAS`、`XIAOAZI_STORE_PASSWORD`、`XIAOAZI_KEY_PASSWORD` 后重新运行构建脚本，会额外输出并验证 `xiaoazi-0.7.10-signed.apk`。请使用自己的签名材料。原交付版的私钥未公开，自行签名的 APK 通常不能覆盖安装原版。
+安装 APK 前需要签名。设置 `XIAOAZI_KEYSTORE`、`XIAOAZI_KEY_ALIAS`、`XIAOAZI_STORE_PASSWORD`、`XIAOAZI_KEY_PASSWORD` 后重新运行构建脚本，会额外输出并验证 `xiaoazi-0.7.10-signed.apk`。请使用自己的签名材料。原交付版的私钥未公开。需要覆盖更新原版时，请向项目所有者私下获取原 keystore 及签名配置；不要把它们提交到 Git 或上传到公开 Release。使用另一把新签名的 APK，需要卸载旧版后安装，不能保留原签名身份直接更新。
+
+后续发布更新应增加 `versionCode`，例如由 37 升为 38，版本名改为 `0.7.11`。构建脚本从 `android/AndroidManifest.xml` 的 `android:versionCode`、`android:versionName` 读取打包版本，输出名和校验也使用这两个值；请同步修改 `project/package.json` 的 `version` 及 `project/capsule/manifest.json` 的 `version`、`versionCode`。版本为 0.7.11 时，签名输出为 `android/build/xiaoazi-0.7.11-signed.apk`。
+
+构建脚本会在 Windows 使用 Java 和 Android 工具的 `.exe` 文件名。本地编译与脚本检查在 macOS 完成，尚未验证 Windows 或 Linux 上的完整打包。
 
 ## 目录与配置
 

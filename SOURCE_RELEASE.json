@@ -52,5 +52,19 @@
     "node_modules, dist and other build caches",
     "Historical APKs and unrelated media"
   ],
-  "license": "No new project-wide license granted; retained third-party licenses continue to apply"
+  "license": "No new project-wide license granted; retained third-party licenses continue to apply",
+  "signingHandoffFollowUp": {
+    "date": "2026-10-29",
+    "versionSource": "android/AndroidManifest.xml android:versionName and android:versionCode",
+    "dynamicOutputNamesAndIdentityCheck": true,
+    "privateSigningMaterialPublished": false,
+    "checkedVersionMetadata": [
+      "0.7.10 / 37",
+      "0.7.11 / 38 on disposable copy only"
+    ],
+    "pythonPrivateHelperAndPublicScriptChecksOn": "macOS",
+    "nativeTestGroupsPassedAfterToolPathChange": 13,
+    "windowsAndLinuxFullBuildTested": false,
+    "newApkBuilt": false
+  }
 }
