@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/phosphor-icons/core",
+  "website": "https://phosphoricons.com/",
+  "commit": "2b75f3ad12b420c9504ef05df8d2564a28f8500e",
+  "license": "MIT",
+  "assets": [
+    {
+      "name": "person-simple-walk",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/person-simple-walk.svg",
+      "sha256": "c64cd5214dd7c4821582d24e2bc21d18e8d0058b77ee0eb3f3f17c0043c635e5"
+    },
+    {
+      "name": "car-profile",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/car-profile.svg",
+      "sha256": "be8757b255ba0294ae73f6b79d0ab823efb3589be7333c83d525b677b01b47af"
+    },
+    {
+      "name": "bicycle",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/bicycle.svg",
+      "sha256": "5830a596814df4e9ac4298e5889b8a6a7a2c56a49018f4faf1f1e2f8f824c14f"
+    }
+  ],
+  "licenseUrl": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/LICENSE"
+}

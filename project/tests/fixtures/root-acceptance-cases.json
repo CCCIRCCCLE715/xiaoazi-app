@@ -1,0 +1,63 @@
+{
+  "purpose": "Independent acceptance inputs; these are expectations, not a claim that tests have passed.",
+  "localRequired": [
+    {"text":"今天我们要干什么","scene":"todo","card":"todo","action":"todo-present","voice":"todo-present"},
+    {"text":"帮我列出今天的待办","scene":"todo","card":"todo","action":"todo-present","voice":"todo-present"},
+    {"text":"接下来我要进行批奏折了","scene":"todo","card":"todo","action":"todo-present"},
+    {"text":"今天有什么安排","scene":"todo","card":"todo"},
+    {"text":"今天要低调一点骑车去公司","scene":"march","card":"march","action":"point","slots":{"destination":"公司","mode":"骑行"},"voice":"march-ride"},
+    {"text":"帮我导航去公司","scene":"march","card":"march","action":"point","slots":{"destination":"公司"}},
+    {"text":"给我导航到公园","scene":"march","card":"march","slots":{"destination":"公园"}},
+    {"text":"春眠不觉晓，处处闻啼鸟","scene":"poem","card":null,"action":"scroll","voice":"poem-praise"},
+    {"text":"床前明月光，疑是地上霜","scene":"poem","card":null,"action":"scroll","voice":"poem-praise"},
+    {"text":"窗前一杯水，喝完再接水","scene":"poem","card":null,"action":"scroll"},
+    {"text":"小A子，给朕作诗","scene":"poem","card":null,"action":"scroll"},
+    {"text":"我想听歌","scene":"music","card":"music","action":"music-tap","voice":"music-intro"},
+    {"text":"给我选一首曲子","scene":"music","card":"music","action":"music-tap"},
+    {"text":"别导航了，给我听歌","scene":"music","card":"music"},
+    {"text":"别给我放歌，我要看今天要办的事","scene":"todo","card":"todo"},
+    {"text":"想吃猪脚饭，三十以内，送公司","scene":"kitchen","card":"kitchen","action":"think","slots":{"budget":30,"address":"公司"},"voice":"kitchen-meal"},
+    {"text":"明天8点钟叫我起床","scene":"morning","card":"morning","action":"greet","slots":{"time":"08:00","day":"明天"},"voice":"wakeup"},
+    {"text":"小A子，早上好","scene":"morning","action":"greet","forbiddenVoice":"wakeup"},
+    {"text":"小A子快救我","scene":"protect","card":null,"action":"protect","voice":"protect-help"},
+    {"text":"帮我回消息","scene":"memorial","card":"memorial","action":"reply"},
+    {"text":"朕不是皇上吗","scene":"ending","card":null,"action":"ending"},
+    {"text":"晚安","scene":"ending","card":null,"action":"ending"}
+  ],
+  "semanticServiceRequired": [
+    {"text":"把朕今儿个要忙的事情呈上来","scene":"todo","card":"todo"},
+    {"text":"看看朕这两句写得如何：山下云归晚，窗前雨入茶","scene":"poem","card":null,"action":"scroll"},
+    {"text":"来点儿音乐吧","scene":"music","card":"music"},
+    {"text":"朕想吃口热乎的，二十五块以内，送办公室","scene":"kitchen","card":"kitchen","slots":{"budget":25}},
+    {"text":"明早八点喊我","scene":"morning","card":"morning","slots":{"time":"08:00","day":"明天"},"voice":"wakeup"},
+    {"text":"明天8点提醒我起身","scene":"morning","card":"morning","slots":{"time":"08:00","day":"明天"}},
+    {"text":"有人刚怼了朕，快替朕撑撑腰","scene":"protect","card":null,"action":"protect","voice":"protect-help"},
+    {"text":"替朕拟个回信，说明下午四点能到","scene":"memorial","card":"memorial"},
+    {"text":"天色不早，朕要就寝了","scene":"ending","card":null}
+  ],
+  "negativeAndRecovery": [
+    {"text":"不要听歌","mustNotOpen":"music"},
+    {"text":"骑行是什么意思","mustNotOpen":"march"},
+    {"text":"例如有人会说：帮我列出今天的待办","mustNotOpen":"todo"},
+    {"text":"我刚才说的是一段引用","mustNotExposeRawModelText":true},
+    {"text":"星际飞船燃料多少钱","mustNotExposeRawModelText":true,"requiresVisibleCharacterReaction":true},
+    {"text":"停止","expected":"cancel stale classifier/audio and return idle"}
+  ],
+  "crossScene": [
+    {"sequence":["我想听歌","今天我们要干什么"],"lastScene":"todo","oldSongMustStop":true,"oldMusicCardMustDisappear":true},
+    {"sequence":["想吃猪脚饭，三十以内，送公司","帮我导航去公司"],"lastScene":"march","mustNotRemainKitchen":true},
+    {"sequence":["春眠不觉晓，处处闻啼鸟","我想听歌","停止"],"lastScene":"idle","noLateSceneResurrection":true}
+  ],
+  "media": {
+    "todoReplacement":"New candidate must differ from v8 todo-present-alpha.webm. Unilateral downward presentation, no bilateral chest curl/deep crouch/bright repeated crease ridges; original fps and resolution retained.",
+    "song":"Verify actual decoded playback progression and nonzero signal, not rotating vinyl or simulated timers. Preserve official-preview identity and label; native phone result remains separate.",
+    "transitions":"Keep last decoded character frame until next actual frame. No blank canvas, opaque gray poster or obsolete card during decision/rapid interruption.",
+    "shadow":"Foot shadow remains present through every character action."
+  },
+  "verificationBoundaries": {
+    "fixture":"Synthetic classification/ASR input proves only app consumption and interruption handling.",
+    "realDeepSeek":"Requires owner's private phone-entered Key and actual provider response. Never infer from fixture.",
+    "physicalSpeech":"Requires physical microphone capture and correct final text on STEPX Neo. Desktop or audio-file model decoding is insufficient.",
+    "assetAcceptance":"Coordinator inspection is candidate QA, not final user visual approval."
+  }
+}

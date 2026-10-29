@@ -1,0 +1,39 @@
+{
+  "name": "xiaoazi-app",
+  "private": true,
+  "version": "0.7.10",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "vite build --config vite.standalone.config.ts",
+    "dev": "vite --config vite.standalone.config.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.standalone.json",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.118.0",
+    "clsx": "2.1.1",
+    "lucide-react": "0.577.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router-dom": "7.18.4",
+    "tailwind-merge": "2.6.1",
+    "fflate": "0.8.2",
+    "fast-xml-parser": "5.3.0",
+    "pdfjs-dist": "4.10.38"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "autoprefixer": "10.6.1",
+    "postcss": "8.5.31",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.9.3",
+    "vite": "6.4.5"
+  },
+  "packageManager": "pnpm@11.25.0"
+}

@@ -1,0 +1,158 @@
+/* =============================================================================
+ * 设计 token（唯一色值来源）
+ *
+ * 本 App 的配色依据：
+ * ① 用户给的角色与界面参照：橙色海星「小A子」、米色纸感底、朱红印章色；
+ * ② 题材是宫廷角色扮演 + 日常事务代办，情绪要「温厚、有戏、但不压迫」；
+ * ③ 色彩角色取「浅（pale）」：大面积暖米底 + 一个朱红强调色，强调色只给准奏与关键状态。
+ * 中性色统一为暖调（不用冷灰），避免和米色底打架。
+ *
+ * 约束（见 references/05-styling.md）：
+ * 1. 字面量色值只允许出现在本文件，其它任何文件都必须使用 token 或 Tailwind 语义类。
+ * 2. token 用「空格分隔的 RGB 通道」书写，便于 Tailwind 用 rgb(var(--x) / <alpha-value>) 支持透明度。
+ * 3. 新增颜色 = 在 :root 加一个原始色阶 + 一个语义映射，缺一不可。
+ * 4. 语义 token 必须成对提供前景与背景（如 --primary / --primary-foreground）。
+ * 5. 前景/背景的配对要满足 4.5:1 对比度（可读性红线，门禁 G44 会逐对计算）。
+ * 6. 本工程只有一套配色：不得写死色值，也不得加 `dark:` 变体。
+ * ========================================================================== */
+
+:root {
+  --map-water: 205 219 211;
+  --map-water-line: 163 188 175;
+  --map-park: 218 226 200;
+  --map-road: 255 253 248;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  /* ---------- 原始色阶（raw palette，暖调） ---------- */
+  --paper-0: 255 253 248;
+  --paper-50: 250 246 238;
+  --paper-100: 245 239 229;
+  --paper-150: 238 230 216;
+  --paper-200: 229 220 205;
+  --paper-300: 208 197 179;
+  --paper-400: 163 149 130;
+  --paper-500: 128 114 98;
+  --paper-600: 112 100 87;
+  --paper-700: 78 68 58;
+  --paper-800: 55 47 40;
+  --paper-900: 42 36 32;
+
+  --vermilion-100: 251 233 226;
+  --vermilion-300: 226 134 116;
+  --vermilion-500: 184 64 50;
+  --vermilion-600: 158 43 38;
+  --vermilion-700: 133 36 32;
+  --vermilion-900: 79 25 22;
+
+  --gold-100: 249 240 214;
+  --gold-300: 226 199 128;
+  --gold-600: 146 110 35;
+
+  --jade-100: 226 238 226;
+  --jade-800: 45 90 58;
+  --amber-100: 250 238 214;
+  --amber-800: 140 89 20;
+  --crimson-100: 251 230 228;
+  --crimson-700: 168 42 36;
+
+  /* ---------- 语义 token ---------- */
+  --background: var(--paper-50);
+  --foreground: var(--paper-900);
+
+  --surface: var(--paper-0);
+  --surface-foreground: var(--paper-900);
+  --surface-muted: var(--paper-100);
+
+  --muted: var(--paper-100);
+  /* 次要文字：在 background / surface / muted 三种底上都达到 4.5:1 */
+  --muted-foreground: var(--paper-600);
+
+  --primary: var(--vermilion-600);
+  --primary-foreground: var(--paper-0);
+  --primary-soft: var(--vermilion-100);
+
+  --secondary: var(--paper-150);
+  --secondary-foreground: var(--paper-800);
+
+  --accent: var(--paper-150);
+  --accent-foreground: var(--paper-900);
+
+  --success: var(--jade-800);
+  --success-foreground: var(--paper-0);
+  --warning: var(--amber-800);
+  --warning-foreground: var(--paper-0);
+  --danger: var(--crimson-700);
+  --danger-foreground: var(--paper-0);
+
+  --border: var(--paper-200);
+  --input: var(--paper-300);
+  --ring: var(--vermilion-600);
+  --overlay: 28 24 21;
+  --character-contact-shadow: var(--paper-900);
+
+  /* 深色提示条（Toast）：墨底浅字 */
+  --toast: var(--paper-900);
+  --toast-foreground: var(--paper-0);
+
+  /* 装饰用金色（只做底色 / 描边，不承载文字对比度） */
+  --gold: var(--gold-300);
+  --gold-soft: var(--gold-100);
+  --gold-ink: var(--gold-600);
+
+  /* ---------- 角色「小A子」专用色（只用于角色插画，不用于界面文字） ---------- */
+  --xiao-body: 255 178 104;
+  --xiao-body-deep: 243 132 66;
+  --xiao-body-light: 255 208 154;
+  --xiao-hat: 34 48 78;
+  --xiao-hat-light: 52 70 105;
+  --xiao-ink: 62 40 32;
+  --xiao-blush: 255 140 118;
+  --xiao-spark: 255 214 128;
+
+  /* ---------- 形状 ---------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --hairline: 0.5px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(55 47 40 / 0.06);
+  --shadow-md: 0 4px 12px -2px rgb(55 47 40 / 0.1);
+  --shadow-lg: 0 12px 32px -8px rgb(55 47 40 / 0.18);
+
+  /* ---------- 字体与排版 ---------- */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'HarmonyOS Sans SC', 'PingFang SC',
+    'Noto Sans CJK SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Songti SC', 'Noto Serif CJK SC', 'Source Han Serif SC', STSong, serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  --text-caption: 12px;
+  --leading-caption: 16px;
+  --text-body: 17px;
+  --leading-body: 26px;
+  --text-title: 16px;
+  --leading-title: 22px;
+  --text-display: 20px;
+  --leading-display: 28px;
+
+  /* ---------- 布局尺寸（App UI） ---------- */
+  --navbar-height: 44px;
+  --tabbar-height: 56px;
+  --tap-min: 44px;
+  --page-inset: 20px;
+  --panel-inset: 16px;
+  --section-gap: 24px;
+  --header-height: 84px;
+
+  /* ---------- 动效 ---------- */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ---------- 安全区 ---------- */
+  --safe-top: var(--sat, env(safe-area-inset-top, 0px));
+  --safe-bottom: var(--sab, env(safe-area-inset-bottom, 0px));
+  --safe-left: var(--sal, env(safe-area-inset-left, 0px));
+  --safe-right: var(--sar, env(safe-area-inset-right, 0px));
+}

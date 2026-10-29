@@ -1,0 +1,38 @@
+{
+  "runtime": "Bundled local JS, local PDF workers and CMaps; no CDN, OCR, macro or formula execution",
+  "packages": [
+    {
+      "package": "fflate",
+      "version": "0.8.2",
+      "licenseFile": "fflate-LICENSE.txt",
+      "licenseSha256": "805f6cb28bb8b6d3a0badd83c93bccd9671fa01a3b4b92b7042b0743325ac243"
+    },
+    {
+      "package": "fast-xml-parser",
+      "version": "5.3.0",
+      "licenseFile": "fast-xml-parser-LICENSE.txt",
+      "licenseSha256": "7883225d5e84a6bbb9b170c3d891b4bf6d6259cee869c86bd86381a927071745"
+    },
+    {
+      "package": "pdfjs-dist",
+      "version": "4.10.38",
+      "licenseFile": "pdfjs-dist-LICENSE.txt",
+      "licenseSha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "package": "strnum",
+      "version": "2.5.1",
+      "transitive": true,
+      "licenseFile": "strnum-LICENSE.txt",
+      "licenseSha256": "2aa16be0f4fad003a352a955a43314e9d1d8deef7034060a82ac9c49f32b81e2"
+    },
+    {
+      "package": "anynum",
+      "version": "1.0.1",
+      "transitive": true,
+      "licenseFile": "anynum-LICENSE.txt",
+      "licenseSha256": "8e75fc0e776c62ccadb8178ece8d3daa9ba7601fb0a49b2dfb0ea9a7a5c0aa07"
+    }
+  ],
+  "lockfile": "parser-deps/pnpm-lock.yaml"
+}

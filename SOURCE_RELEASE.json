@@ -1,0 +1,56 @@
+{
+  "version": "0.7.10",
+  "versionCode": 37,
+  "applicationId": "com.xiaoazi.standalone",
+  "sourceReleaseDate": "2026-10-29",
+  "baseline": "Retained v37 release from 2026-10-28; production Web and native code unchanged",
+  "portabilityChanges": [
+    "Dereferenced all shared-directory inputs",
+    "Standalone Vite build copies resources instead of workspace symlinks",
+    "Pinned original installed dependency versions with pnpm lockfile",
+    "SDK/JDK paths supplied by environment; unsigned APK by default; optional external signing configuration",
+    "Portable test fixture and FFmpeg lookup",
+    "Local source path and platform project identifier removed from metadata"
+  ],
+  "checks": {
+    "frozenDependencyInstall": {
+      "passed": true,
+      "packages": 156,
+      "ignoreScripts": true,
+      "trustedRetainedLockRecords": true
+    },
+    "typescript": true,
+    "webProductionBuild": true,
+    "webTests": {
+      "passed": 430,
+      "failed": 0
+    },
+    "javaProductionSourcesCompiled": 24,
+    "javaTestSourcesCompiled": 15,
+    "javaTestGroupsPassed": 13,
+    "javaTestGroupsExcluded": {
+      "ModelHttpsTest": "Actual network/service required",
+      "DocumentAnalysisContractTest": "Android JSONObject runtime required"
+    },
+    "runtimeFreshDirectoryRestore": {
+      "files": 69,
+      "sha256Verified": true
+    },
+    "pythonBuildScriptSyntax": true,
+    "newApkBuilt": false,
+    "originalApkModified": false,
+    "physicalDeviceVerified": false,
+    "realModelServiceVerified": false,
+    "externalAppLaunchVerified": false,
+    "humanAudioVisualAcceptance": false
+  },
+  "runtimeDistribution": "runtime-assets.json and GitHub Release v0.7.10-source",
+  "excluded": [
+    "Actual API keys, credentials and signing material",
+    "Personal data and device logs",
+    "Developer absolute paths and workspace symlinks",
+    "node_modules, dist and other build caches",
+    "Historical APKs and unrelated media"
+  ],
+  "license": "No new project-wide license granted; retained third-party licenses continue to apply"
+}

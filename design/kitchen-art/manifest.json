@@ -1,0 +1,350 @@
+[
+  {
+    "id": "pork-rice",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/pork-rice.png",
+    "originalSha256": "3cee476b54322134f745b2b57dcc3603c4097698ea25a3af662cbaf2dc555316",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      22,
+      1208,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/pork-rice.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 78470,
+    "runtimeSha256": "1002053d1137dd5795a532df54697b3a2220de737612adba4afb9440d29523f6",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": false
+  },
+  {
+    "id": "kfc",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/kfc.png",
+    "originalSha256": "056ca3da3e58c0254103b46b94776e401cedcc333c9a66022398fe47bea22548",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      0,
+      1224,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/kfc.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 76936,
+    "runtimeSha256": "038626209dc89fdf6cd275ca88ec0d1987e5e847b902b343bbf5b1ae4dbc45e6",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": false
+  },
+  {
+    "id": "damixiansheng",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/damixiansheng.png",
+    "originalSha256": "32f0a08fd332f1347ca3c8f83e6669785705d86a11bd11a96e56d4901a008894",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      29,
+      1242,
+      1237
+    ],
+    "runtime": "project/src/assets/ui/food-v34/damixiansheng.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 76194,
+    "runtimeSha256": "c93292a5cdc7d927cf8e04e3b93eb691bad63bba8962d79cbd2116934f574846",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": false
+  },
+  {
+    "id": "pork-duck",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/pork-duck.png",
+    "originalSha256": "5bb47b3cee93e22fc553f7a1675be6aedd9603e7facac7318feb0b8774f0cd12",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      8,
+      1242,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/pork-duck.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 75044,
+    "runtimeSha256": "fe1a5767a567ece2c7dcc9adb8de8a26cb163c8fc0be4a5b34963d73a6fe2dcc",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": false
+  },
+  {
+    "id": "pork-combo",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/pork-combo.png",
+    "originalSha256": "878cc251114998ddcc4b8ee3da381933362856e6dc2e16def454672fa4cdaa0f",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      19,
+      1206,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/pork-combo.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 82856,
+    "runtimeSha256": "8433a6fc3094d46709012129e740832972eac38a81fa0762312b7265593b0811",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": true
+  },
+  {
+    "id": "pork-chicken",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/pork-chicken.png",
+    "originalSha256": "886f5d1d07be2c2711179dbca19e36b44ebf737979587b9b0de703cf4e38d08d",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      41,
+      1238,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/pork-chicken.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 74730,
+    "runtimeSha256": "64f25b688aca465744bcd06644124287677892df07cde2467a46551e5948f97c",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": true
+  },
+  {
+    "id": "kfc-crispy",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/kfc-crispy.png",
+    "originalSha256": "3c0c8df2f68c4afc34920d84ef8a89de3fcc6281c16b18ae4b74d18d66571a25",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      29,
+      135,
+      1224,
+      1158
+    ],
+    "runtime": "project/src/assets/ui/food-v34/kfc-crispy.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 69320,
+    "runtimeSha256": "cc066c9b919e4e7eb1371818268ff8fe3c769ea6f3bebf6b857ed71eb2b18fc8",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": true
+  },
+  {
+    "id": "kfc-wings",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/kfc-wings.png",
+    "originalSha256": "b9914fa7cc560b1d2f5a1c66c15414384ad1e1075bc15449d1865c71dc7c3b59",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      33,
+      1194,
+      1214
+    ],
+    "runtime": "project/src/assets/ui/food-v34/kfc-wings.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 64058,
+    "runtimeSha256": "ef21d021b1089d52cca09d9d284f33d4abf6774c20c023fab2fde0c54f5c4528",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": true
+  },
+  {
+    "id": "kfc-nuggets",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/kfc-nuggets.png",
+    "originalSha256": "3cf8cb78ff8691688b386b596618ee039c2f7d7292b8552070bbd3e7e4d90a9f",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      95,
+      1210,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/kfc-nuggets.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 72620,
+    "runtimeSha256": "e0b26f0b9f60173d0a9ba83169d600274d8c675499b7e09315eb1c0d984d83e2",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": true
+  },
+  {
+    "id": "dami-pepper",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/dami-pepper.png",
+    "originalSha256": "6cade2d080f400c5a0c504eb8608544f4b1a77ad58b553eed625c4ea7bddd6a7",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      23,
+      1182,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/dami-pepper.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 69158,
+    "runtimeSha256": "e41a38286de10a6acb271a9069a1ba4e04dc18f7877875a08bc28d378d39f6e1",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": true
+  },
+  {
+    "id": "dami-tomato",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/dami-tomato.png",
+    "originalSha256": "8b21c10cf0243013e7b3a61b5984312c23e11259d9b9e6fa1e9b39f77bfc2001",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      0,
+      1240,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/dami-tomato.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 64766,
+    "runtimeSha256": "1f241906edd79289bb873fed04f00c57fadec67b3624719b0e0f72afb2bcbdad",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": true
+  },
+  {
+    "id": "dami-chicken",
+    "generator": "built-in image_gen",
+    "original": "design/kitchen-art/originals/dami-chicken.png",
+    "originalSha256": "6d408795d2347d972282955c3bf28bb582210d69e33cac0d7948df212eba31a1",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      0,
+      1226,
+      1254
+    ],
+    "runtime": "project/src/assets/ui/food-v34/dami-chicken.webp",
+    "runtimeDimensions": [
+      512,
+      512
+    ],
+    "runtimeBytes": 76682,
+    "runtimeSha256": "71b10f76b33d273a4b39e5bd58d69c890dc2c2afeae597dd2d59b9dc1bd3eb5d",
+    "review": "accepted: matching dish, complete container, transparent background; individual generation",
+    "initialRejected": true
+  }
+]

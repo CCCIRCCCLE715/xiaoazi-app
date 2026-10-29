@@ -1,0 +1,354 @@
+{
+  "version": "0.7.10",
+  "versionCode": 37,
+  "url": "https://github.com/CCCIRCCCLE715/xiaoazi-app/releases/download/v0.7.10-source/xiaoazi-runtime-v0.7.10.zip",
+  "bytes": 441110734,
+  "sha256": "746701e8837c6124e2a88bc833774d146e7d0eac96b6c5e8b39e51cdb8fb4013",
+  "files": [
+    {
+      "path": "project/src/assets/audio/background-music.mp3",
+      "bytes": 1008160,
+      "sha256": "8f3bd1af5800048cb6685d39737eaf12d07b91aaf1a5e1de4649fcc6eaffbf2b"
+    },
+    {
+      "path": "project/src/assets/audio/client-ending-apology.wav",
+      "bytes": 787186,
+      "sha256": "92839c9f6db9fcede5559591991c2ba78d5597ff28069551e3d5b453544a1ed0"
+    },
+    {
+      "path": "project/src/assets/audio/home-greeting.mp3",
+      "bytes": 158868,
+      "sha256": "8ead77bf134124db26102faed0a3d900a27b45c8146513e153dd6c1b385d9ca7"
+    },
+    {
+      "path": "project/src/assets/audio/idle-greeting.mp3",
+      "bytes": 39332,
+      "sha256": "2b31ead33d8cd3b4ab0415fb32db44a77cd348f0886a29945faf6a7c9c0911c6"
+    },
+    {
+      "path": "project/src/assets/audio/kitchen-meal.mp3",
+      "bytes": 120804,
+      "sha256": "7ba6f37fcc3342bd77035a839835724657a95879727d74fa651ca17b4afe6262"
+    },
+    {
+      "path": "project/src/assets/audio/kitchen-three.mp3",
+      "bytes": 89487,
+      "sha256": "9ba5729b26a22dbf91d773e164ceb1b37e0b6773c977bd934fcc23317ffc1937"
+    },
+    {
+      "path": "project/src/assets/audio/march-query.mp3",
+      "bytes": 54378,
+      "sha256": "9ba284d9ac82c6f4416c697840306a085c561fdf36b5a1e171bff78a6aacfa41"
+    },
+    {
+      "path": "project/src/assets/audio/march-ride-tail-clean.wav",
+      "bytes": 635670,
+      "sha256": "f9c1fd5ba4f03c228a87dc14e4ec3d9b9cdcb6150f20ebeae5d0b5c5a66ab839"
+    },
+    {
+      "path": "project/src/assets/audio/music-intro.mp3",
+      "bytes": 168899,
+      "sha256": "747751302750845b5db559f411fc842b630bcd8da7b001261d3ecb3e2758c7d6"
+    },
+    {
+      "path": "project/src/assets/audio/poem-praise-tail-clean.wav",
+      "bytes": 837400,
+      "sha256": "224ea4400fddcd9414fb80175dbeb3dac45b9d0eb912a52698832f47645da48a"
+    },
+    {
+      "path": "project/src/assets/audio/protect-help-tail-clean.wav",
+      "bytes": 344854,
+      "sha256": "ca3f428a51492940fa85e585ccf3550c88013e12ea2d42c7990d4a5f71e2d72d"
+    },
+    {
+      "path": "project/src/assets/audio/special-person-preview.m4a",
+      "bytes": 999082,
+      "sha256": "d7f300efdd304d5536e2810e6ea60dd408d9f847e2e20ef52814e32cec8cf56a"
+    },
+    {
+      "path": "project/src/assets/audio/todo-deadline.mp3",
+      "bytes": 144239,
+      "sha256": "753b3e76be0bf013e5489751a638977161005c0ed4ff93e4e4b9daecf466b56f"
+    },
+    {
+      "path": "project/src/assets/audio/todo-present.mp3",
+      "bytes": 140896,
+      "sha256": "cce1a2344e89b3049a52462ca9a301e36a6376eb2cb2f6d6fb6d0f79074a47a9"
+    },
+    {
+      "path": "project/src/assets/audio/wakeup.wav",
+      "bytes": 5256766,
+      "sha256": "59a53410f31964cc2941db41ebf3eb7647996d6f939b244c8111f1fe9a58b0cb"
+    },
+    {
+      "path": "project/src/assets/character/actions-v11/ending-apology-alpha.webm",
+      "bytes": 53118536,
+      "sha256": "ca3fe1593d61a4cd4cf4a26463a6898db0807b3b70d169e31d6b8fe0991e3f51"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/ending-alpha.webm",
+      "bytes": 10957512,
+      "sha256": "9bd29f5283c5544786647c97079efdf0739246bc9de630d403200bec40443583"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/greet-alpha.webm",
+      "bytes": 29984855,
+      "sha256": "952220a19cce2f87626f37f2b006f9f300028f25c07fc4cbd893d6e425384568"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/idle-alpha.webm",
+      "bytes": 23638003,
+      "sha256": "3913c8a7949d57007ae181880bea3781515d66b63893fe0f89f108b6137779a1"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/listen-alpha.webm",
+      "bytes": 8319237,
+      "sha256": "737928ae6610b573b7265729b4acc45236dba8fc84e29bb5476ed31932759a70"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/neutral.png",
+      "bytes": 741287,
+      "sha256": "90b60d7b07ab25b4bbb51c3a4cd16046bee47271f18e1a70d1049dafc7c565a4"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/point-alpha.webm",
+      "bytes": 9961540,
+      "sha256": "30a00d4b24d2a6b475f43415ab1fc5d6e01b3e06b3f8421244ea55805ab601e6"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/protect-alpha.webm",
+      "bytes": 20536727,
+      "sha256": "b4d119a85f7e4f089f7e0bb812ca1e4efb284ac663b4cef48dd2dbb561ac0bbd"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/reply-alpha.webm",
+      "bytes": 8303095,
+      "sha256": "de790d375bf519bc8d750889e21f8b5659b0c5c22d5e630e5946e7b5f3239e7f"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/scroll-alpha.webm",
+      "bytes": 22888557,
+      "sha256": "4523a9785461bc3191abd81823b926a7c8384518202c0d7dfc6eee7316858525"
+    },
+    {
+      "path": "project/src/assets/character/actions-v4/think-alpha.webm",
+      "bytes": 25137546,
+      "sha256": "264f18614016ef2be1ef7b5ddeef6e1942f38834fe54ded232d73ab74bfd28d7"
+    },
+    {
+      "path": "project/src/assets/character/actions-v6/music-tap-alpha.webm",
+      "bytes": 23811144,
+      "sha256": "6890ac379b696f4117a24b31cc7af1bfef6f7fccec85bbbf384a9b3dc4d673e2"
+    },
+    {
+      "path": "project/src/assets/character/posters/idle.png",
+      "bytes": 641480,
+      "sha256": "a4b6620e6d9810b356ab9ccdaae39addefac72445ff200bb9cd93ca9f04fd8ac"
+    },
+    {
+      "path": "project/src/assets/icons/phosphor-regular/LICENSE",
+      "bytes": 1071,
+      "sha256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2"
+    },
+    {
+      "path": "project/src/assets/icons/phosphor-regular/bicycle.svg",
+      "bytes": 624,
+      "sha256": "5830a596814df4e9ac4298e5889b8a6a7a2c56a49018f4faf1f1e2f8f824c14f"
+    },
+    {
+      "path": "project/src/assets/icons/phosphor-regular/car-profile.svg",
+      "bytes": 496,
+      "sha256": "be8757b255ba0294ae73f6b79d0ab823efb3589be7333c83d525b677b01b47af"
+    },
+    {
+      "path": "project/src/assets/icons/phosphor-regular/person-simple-walk.svg",
+      "bytes": 631,
+      "sha256": "c64cd5214dd7c4821582d24e2bc21d18e8d0058b77ee0eb3f3f17c0043c635e5"
+    },
+    {
+      "path": "project/src/assets/map/Leaflet-LICENSE.txt",
+      "bytes": 1395,
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb"
+    },
+    {
+      "path": "project/src/assets/map/OSM-LICENSE.txt",
+      "bytes": 333,
+      "sha256": "99f5e1b2fd41f433f09454e242d3f129e7106a4d54d89ecefd90a5f69ab1b8dc"
+    },
+    {
+      "path": "project/src/assets/map/example-route.json",
+      "bytes": 1691,
+      "sha256": "76f9d012a5600890d896753803017860acc8bf0cadb4876cb662cc614e5c779c"
+    },
+    {
+      "path": "project/src/assets/map/hangzhou.json",
+      "bytes": 2346638,
+      "sha256": "623fdc0055528e137f1498446e6086d1b9ad46240e6c94aad78101b7c91d9b8e"
+    },
+    {
+      "path": "project/src/assets/ui/audience_hall-v2.png",
+      "bytes": 2108283,
+      "sha256": "3ae9e8494a97f8818ab5866b157c127d04b59a0a110cec8772c3926ed87206a8"
+    },
+    {
+      "path": "project/src/assets/ui/bedchamber-v2.png",
+      "bytes": 1881120,
+      "sha256": "c521f8f228ba97f97af846d236b0f1868e44cc9975175c6bd7173e88ecbe1794"
+    },
+    {
+      "path": "project/src/assets/ui/chicken.png",
+      "bytes": 2080218,
+      "sha256": "262045fc63ffd55e6d7384abf9fdcbdfc08af2b8ec90ee847ab8f809ac611912"
+    },
+    {
+      "path": "project/src/assets/ui/dumplings.png",
+      "bytes": 1980340,
+      "sha256": "91ce0feae3872df58c9b208269ca7eb957cfe691190c1bfca07ec40783c3eff7"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/dami-chicken.webp",
+      "bytes": 76682,
+      "sha256": "71b10f76b33d273a4b39e5bd58d69c890dc2c2afeae597dd2d59b9dc1bd3eb5d"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/dami-pepper.webp",
+      "bytes": 69158,
+      "sha256": "e41a38286de10a6acb271a9069a1ba4e04dc18f7877875a08bc28d378d39f6e1"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/dami-tomato.webp",
+      "bytes": 64766,
+      "sha256": "1f241906edd79289bb873fed04f00c57fadec67b3624719b0e0f72afb2bcbdad"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/damixiansheng.webp",
+      "bytes": 76194,
+      "sha256": "c93292a5cdc7d927cf8e04e3b93eb691bad63bba8962d79cbd2116934f574846"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/kfc-crispy.webp",
+      "bytes": 69320,
+      "sha256": "cc066c9b919e4e7eb1371818268ff8fe3c769ea6f3bebf6b857ed71eb2b18fc8"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/kfc-nuggets.webp",
+      "bytes": 72620,
+      "sha256": "e0b26f0b9f60173d0a9ba83169d600274d8c675499b7e09315eb1c0d984d83e2"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/kfc-wings.webp",
+      "bytes": 64058,
+      "sha256": "ef21d021b1089d52cca09d9d284f33d4abf6774c20c023fab2fde0c54f5c4528"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/kfc.webp",
+      "bytes": 76936,
+      "sha256": "038626209dc89fdf6cd275ca88ec0d1987e5e847b902b343bbf5b1ae4dbc45e6"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/pork-chicken.webp",
+      "bytes": 74730,
+      "sha256": "64f25b688aca465744bcd06644124287677892df07cde2467a46551e5948f97c"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/pork-combo.webp",
+      "bytes": 82856,
+      "sha256": "8433a6fc3094d46709012129e740832972eac38a81fa0762312b7265593b0811"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/pork-duck.webp",
+      "bytes": 75044,
+      "sha256": "fe1a5767a567ece2c7dcc9adb8de8a26cb163c8fc0be4a5b34963d73a6fe2dcc"
+    },
+    {
+      "path": "project/src/assets/ui/food-v34/pork-rice.webp",
+      "bytes": 78470,
+      "sha256": "1002053d1137dd5795a532df54697b3a2220de737612adba4afb9440d29523f6"
+    },
+    {
+      "path": "project/src/assets/ui/food.png",
+      "bytes": 1795782,
+      "sha256": "5f3fca47625782e2df21f4d976ef828699fa5ff72806bc24d6ba37e3b836d9a6"
+    },
+    {
+      "path": "project/src/assets/ui/noodles.png",
+      "bytes": 2090532,
+      "sha256": "8bba6905d7e5f51f1539d61d34b4aae96899881e2b3e553cabc69d3ca4a8c85d"
+    },
+    {
+      "path": "project/src/assets/ui/ornaments/pavilion-clouds.svg",
+      "bytes": 1295,
+      "sha256": "d19ea4918c14187a2808de21a7b3af4c846f80085d8d45445dcd6dda1b4bbbbe"
+    },
+    {
+      "path": "project/src/assets/ui/palace-v26/generation-manifest.json",
+      "bytes": 1226,
+      "sha256": "c9f78b05bd0cd9f80dcee4cca440eac5e80ea22ae05205a228822a9aea92b4ab"
+    },
+    {
+      "path": "project/src/assets/ui/palace-v26/menu-icons-atlas.png",
+      "bytes": 1495441,
+      "sha256": "c6b94581c24b4a6767031bbf83eb04b85cd2b5bf22d1dacb2675f2a39827ed4b"
+    },
+    {
+      "path": "project/src/assets/ui/palace-v26/palace-background.png",
+      "bytes": 1888657,
+      "sha256": "54f160fa70a6bb3d0fdffbff918b0a458ad6836ee8eb1f523848701c4f4cd9c8"
+    },
+    {
+      "path": "project/src/assets/ui/restaurant-v2.png",
+      "bytes": 1961554,
+      "sha256": "877cbb8b3fbfa433373a8952cd8af9cf9ffd4b53937be1b42825d434f4b2e07f"
+    },
+    {
+      "path": "project/src/assets/ui/scroll.png",
+      "bytes": 1556531,
+      "sha256": "b06733582aed9506e4918817fbb648192e0ea826611977640d1f54b57f4dbfb6"
+    },
+    {
+      "path": "project/src/assets/ui/street-v2.png",
+      "bytes": 2249441,
+      "sha256": "a86a23a6e501be4e3798fcee92d6be7ae208db3c722c513f6f78e97bd5a6c221"
+    },
+    {
+      "path": "sensevoice/model/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/LICENSE",
+      "bytes": 71,
+      "sha256": "221c6df10b0931a5629adad671ea48fb7747e034c414b6d2bfa275bc3dd4ea17"
+    },
+    {
+      "path": "sensevoice/model/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/README.md",
+      "bytes": 104,
+      "sha256": "763991a00edaea534ab36bf1b7cf89e61e911666dcfabbba71f91f9f7c593a63"
+    },
+    {
+      "path": "sensevoice/model/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx",
+      "bytes": 239233841,
+      "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51"
+    },
+    {
+      "path": "sensevoice/model/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/silero_vad_v5.onnx",
+      "bytes": 2313101,
+      "sha256": "6b99cbfd39246b6706f98ec13c7c50c6b299181f2474fa05cbc8046acc274396"
+    },
+    {
+      "path": "sensevoice/model/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt",
+      "bytes": 315894,
+      "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc"
+    },
+    {
+      "path": "sensevoice/android-runtime/jni/arm64-v8a/libonnxruntime.so",
+      "bytes": 22249560,
+      "sha256": "33847ad43bffe204699fd4a27f7f3603452a8cdaf2f9a44983a0bc31ffcf2da1"
+    },
+    {
+      "path": "sensevoice/android-runtime/jni/arm64-v8a/libsherpa-onnx-jni.so",
+      "bytes": 4555952,
+      "sha256": "85bb7351f9825c1d12d11e4bca455a9af9dcc636f55a95a21cfdbcafde6293e3"
+    },
+    {
+      "path": "sensevoice/sherpa-onnx-jvm-2.0.0.jar",
+      "bytes": 190598,
+      "sha256": "ae9dea81af11253c874bed3a7a35e610b583f0350e8380786a1900eff8a831f0"
+    }
+  ]
+}

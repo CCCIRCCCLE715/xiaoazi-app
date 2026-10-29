@@ -1,0 +1,82 @@
+{
+  "retrievedAt": "2026-10-25T17:30:10.348307+00:00",
+  "source": "https://overpass.kumi.systems/api/interpreter",
+  "query": "overpass-query.txt",
+  "bbox": [
+    120.12,
+    30.23,
+    120.21,
+    30.3
+  ],
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "licenseURL": "https://www.openstreetmap.org/copyright",
+  "features": 6406,
+  "rawBytes": 5525281,
+  "rawSha256": "59d9014deaf810f3a07bdf9c9c717f5be3adfaae391805c8e938a3c6cb543b67",
+  "route": {
+    "startNode": 5046598053,
+    "endNode": 13769477468,
+    "distanceMeters": 1876,
+    "method": "Dijkstra geometric shortest path on downloaded undirected cycling-eligible way graph; fixed demonstration only, no traffic/turn/restriction/time engine or actual company geocoding",
+    "coordinateFile": "project/src/assets/map/example-route.json"
+  },
+  "library": {
+    "name": "Leaflet",
+    "version": "1.9.4",
+    "license": "BSD-2-Clause",
+    "source": "https://unpkg.com/leaflet@1.9.4/",
+    "cssChange": "unused image URLs removed; no tile/marker/layer-control images requested"
+  },
+  "assets": [
+    {
+      "file": "project/src/assets/map/Leaflet-LICENSE.txt",
+      "bytes": 1395,
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb"
+    },
+    {
+      "file": "project/src/assets/map/OSM-LICENSE.txt",
+      "bytes": 333,
+      "sha256": "99f5e1b2fd41f433f09454e242d3f129e7106a4d54d89ecefd90a5f69ab1b8dc"
+    },
+    {
+      "file": "project/src/assets/map/example-route.json",
+      "bytes": 1691,
+      "sha256": "76f9d012a5600890d896753803017860acc8bf0cadb4876cb662cc614e5c779c"
+    },
+    {
+      "file": "project/src/assets/map/hangzhou.json",
+      "bytes": 2346638,
+      "sha256": "623fdc0055528e137f1498446e6086d1b9ad46240e6c94aad78101b7c91d9b8e"
+    },
+    {
+      "file": "project/src/vendor/leaflet/leaflet.css",
+      "bytes": 14083,
+      "sha256": "a90d372fd652ef30c9a65df116d31b4482862024c5a51c33683498eb7445c047"
+    },
+    {
+      "file": "project/src/vendor/leaflet/leaflet.esm.js",
+      "bytes": 424589,
+      "sha256": "39ee93464f11fe3847137e50c0dc8189f706c460e36989ea7871bf7d540f3306"
+    },
+    {
+      "file": "project/public/maps/Leaflet-LICENSE.txt",
+      "bytes": 1395,
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb"
+    },
+    {
+      "file": "project/public/maps/OSM-LICENSE.txt",
+      "bytes": 333,
+      "sha256": "99f5e1b2fd41f433f09454e242d3f129e7106a4d54d89ecefd90a5f69ab1b8dc"
+    },
+    {
+      "file": "project/public/maps/credits.html",
+      "bytes": 2487,
+      "sha256": "eeb150210eb93abeb56f82ea22586f27e9bff4ee474b39a4664c69b778e48a6f"
+    }
+  ],
+  "runtimeLoading": "Local Vite dynamic JSON module (same-origin script); connect-src none unchanged; no fetch/CDN/tile server",
+  "offlineLicenseNavigation": "Local appassets HTML page, no external navigation or runtime fetch; same CSP/native whitelist retained",
+  "runtimeDataset": "project/src/assets/map/hangzhou.json",
+  "rawSourceRetained": "map-source/hangzhou-overpass.json"
+}

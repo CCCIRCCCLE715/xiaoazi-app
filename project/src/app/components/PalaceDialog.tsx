@@ -1,0 +1,3 @@
+import {useLayoutEffect,useRef,type ReactNode} from 'react'
+/** Native modal focus containment and restoration, matching the department menu. */
+export function PalaceDialog({label,onClose,children}:{label:string;onClose:()=>void;children:ReactNode}){const ref=useRef<HTMLDialogElement>(null),close=useRef(onClose);close.current=onClose;useLayoutEffect(()=>{const node=ref.current!,previous=document.activeElement;if(!node.open)node.showModal();return()=>{node.close();if(previous instanceof HTMLElement&&previous.isConnected)previous.focus({preventScroll:true})}},[]);return <dialog ref={ref} className="palace-sheet" aria-label={label} onCancel={e=>{e.preventDefault();close.current()}}>{children}</dialog>}

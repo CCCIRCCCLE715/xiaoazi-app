@@ -1,0 +1,104 @@
+/* Full pages share the paper palette; only the existing character shell moves. */
+.character-shell {transform-origin:50% 50%;transition:transform 240ms var(--ease-out);}
+.character-shell[data-floating=true] {z-index:40;height:min(78vw,360px);max-height:none;}
+.character-shell[data-floating=true] .court-character-tap {touch-action:none;cursor:grab;inset:0;width:100%;height:100%;}
+.character-shell[data-floating=true] .court-bubble {display:none;}
+.character-shell[data-floating=true][data-dragging=true] {transition:none;}
+.character-shell[data-floating=true][data-dragging=true] .court-character-tap {cursor:grabbing;}
+.character-shell[data-floating=true]:has(.court-character-tap:active) .character-renderer {transform:none;}
+.character-shell[data-floating=true] .character-shadow {filter:blur(2px);}
+.court-screen .fullpage-presence {position:absolute;inset:0 0 var(--fullscreen-dock-height,90px);z-index:20;padding:0;transform-origin:center;}
+.court-screen[data-fullpage=true] {background:rgb(var(--background));}
+.court-screen[data-fullpage=true]>.court-backdrop {visibility:hidden;}
+.court-screen[data-fullpage=true]>.court-dock {z-index:50;width:100%;align-self:stretch;margin-bottom:0;background:rgb(var(--background));padding:12px var(--page-inset) calc(16px + var(--safe-bottom));}
+.court-screen[data-fullpage=true]>.court-dock>:is(.court-composer,.composer-draft,.composer-notice) {width:100%;margin-left:auto;margin-right:auto;}
+.court-screen[data-fullpage=true]>.court-hidden-settings {display:none;}
+.court-screen .fullpage-presence .imperial-fullpage {height:100%;max-height:none;border:0;border-radius:0;box-shadow:none;background:rgb(var(--background));overflow:hidden;}
+.fullpage-header {position:relative;flex-shrink:0;background:linear-gradient(rgb(var(--gold-soft)),rgb(var(--background)));}
+.fullpage-title {min-height:var(--header-height);display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:12px;padding:20px var(--page-inset);}
+.fullpage-title>button {width:44px;height:44px;display:grid;place-items:center;color:rgb(var(--foreground));border-radius:50%;}
+.fullpage-title>span {width:44px;}
+.fullpage-title h2 {font-family:var(--font-serif);font-size:22px;line-height:32px;font-weight:600;letter-spacing:.08em;text-indent:.08em;margin:0;text-align:center;}
+.imperial-roof {display:block;width:100%;height:auto;aspect-ratio:720/152;max-height:76px;object-fit:contain;padding:0 var(--page-inset);color:rgb(var(--gold-ink));}
+.imperial-fullpage>.imperial-card-content {padding:var(--section-gap) var(--page-inset);overscroll-behavior:contain;}
+.imperial-fullpage .food-grid {display:flex;flex-direction:column;gap:12px;}
+.imperial-fullpage .food-choice {display:grid;grid-template-columns:92px minmax(0,1fr) 20px;grid-template-rows:auto auto auto auto;text-align:left;column-gap:10px;row-gap:3px;padding:16px;border:1px solid rgb(var(--border)/.65);border-radius:20px;background:rgb(var(--surface));align-items:center;min-height:132px;}
+.imperial-fullpage .food-choice>.court-illustration {grid-column:1;grid-row:1/5;width:92px;height:92px;object-fit:contain;border-radius:14px;background:rgb(var(--surface-muted));}
+.imperial-fullpage .food-name {grid-column:2;grid-row:1;white-space:normal;font-size:16px;font-weight:600;line-height:1.5;margin:0;align-self:end;}
+.imperial-fullpage .food-description {grid-column:2;grid-row:2;font-size:12px;color:rgb(var(--muted-foreground));}
+.imperial-fullpage .food-meta {font-size:11px;}
+.imperial-fullpage .food-price {grid-column:2;grid-row:4;font-size:20px;margin:0;align-self:start;}
+.imperial-fullpage .food-price>span {font-size:12px;margin-left:4px;}
+.imperial-fullpage .food-price>svg {display:none;}
+.imperial-fullpage .food-check {grid-column:3;grid-row:1/5;position:static;display:grid;place-items:center;width:20px;height:20px;}
+.imperial-fullpage .food-choice[aria-pressed=true] {border-color:rgb(var(--primary));background:rgb(var(--primary-soft)/.4);box-shadow:none;}
+.imperial-fullpage .food-choice:disabled {opacity:.55;}
+.imperial-fullpage .kitchen-delivery {margin-top:16px;padding:8px 12px;border:1px solid rgb(var(--border));background:rgb(var(--surface));border-radius:16px;}
+.imperial-fullpage .kitchen-delivery summary {font-size:14px;line-height:1.5;gap:8px;}
+.imperial-fullpage .kitchen-delivery summary strong {font-weight:500;}
+.imperial-fullpage .kitchen-delivery summary small {font-size:12px;}
+.imperial-fullpage .kitchen-delivery textarea,.imperial-fullpage .kitchen-delivery input {font-size:16px;}
+.imperial-fullpage .court-card-form {padding-top:8px;}
+.imperial-fullpage .imperial-card-actions {margin:0 var(--page-inset);padding:16px 0 8px;gap:16px;border-color:rgb(var(--border));}
+.imperial-fullpage .imperial-card-actions>.imperial-primary {min-height:48px;font-size:20px;border-radius:999px;max-width:none;box-shadow:none;border:0;background:rgb(var(--primary));}
+.imperial-card[data-card=kitchen]>.imperial-card-actions {display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:16px;min-height:80px;}
+.food-current-selection {min-width:0;display:flex;flex-direction:column;gap:4px;color:rgb(var(--foreground));line-height:1.4;}
+.food-selected-name {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:rgb(var(--muted-foreground));}
+.food-selected-amount {display:flex;align-items:baseline;font-size:28px;line-height:32px;font-weight:600;font-variant-numeric:tabular-nums;color:rgb(var(--primary));}
+.food-selected-amount small {font-size:16px;margin-right:3px;}
+.food-selection-prompt {font-size:14px;color:rgb(var(--muted-foreground));}
+.imperial-fullpage .travel-heading {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;}
+.imperial-fullpage .travel-heading strong {font-size:16px;font-weight:600;}
+.imperial-fullpage .travel-heading span {font-size:13px;line-height:1.5;color:rgb(var(--muted-foreground));text-align:right;overflow-wrap:anywhere;max-width:48%;}
+.imperial-fullpage .travel-choices {display:flex;flex-direction:column;gap:12px;}
+.imperial-fullpage .travel-choices>button {display:flex;align-items:center;gap:16px;min-height:68px;border:1px solid rgb(var(--border));background:rgb(var(--surface));border-radius:18px;padding:12px 16px;font-size:17px;}
+.imperial-fullpage .travel-choices>button>span:nth-child(2) {flex:1;text-align:left;}
+.imperial-fullpage .travel-choices>button[aria-pressed=true] {border-color:rgb(var(--primary));color:rgb(var(--primary));background:rgb(var(--primary-soft));}
+.imperial-fullpage .travel-selected {font-size:12px;}
+.imperial-fullpage .travel-chooser {padding:0;margin:0;}
+.imperial-fullpage .march-content {gap:24px;}
+.imperial-fullpage .route-form {order:-1;display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:8px;align-items:center;border:1px solid rgb(var(--input));border-radius:20px;padding:8px;background:rgb(var(--surface));}
+.imperial-fullpage .route-form input {width:100%;min-width:0;border:0;outline:0;box-shadow:none;background:transparent;min-height:44px;font-size:17px;line-height:24px;padding:10px 4px;border-radius:0;}
+.imperial-fullpage .route-form:focus-within {border-color:rgb(var(--primary));box-shadow:0 0 0 3px rgb(var(--primary)/.1);}
+.route-location {width:44px;height:44px;display:grid;place-items:center;color:rgb(var(--muted-foreground));}
+.imperial-fullpage .route-form button {width:44px;height:44px;min-width:44px;padding:0;border-radius:14px;}
+.imperial-fullpage .travel-choices .travel-icon {width:32px;height:32px;flex:none;}
+.imperial-fullpage .march-transport {margin:0;}
+.imperial-fullpage .march-transport>summary {font-size:14px;}
+.imperial-fullpage .hangzhou-journey {position:relative;height:auto;min-height:0;visibility:visible;display:flex;flex-direction:column;gap:8px;}
+.hangzhou-journey[data-riding=true] {padding-top:64px;}
+.imperial-fullpage .hangzhou-journey .march-bike-traveller {height:134px;top:12px;transform:translateY(20px);}
+.imperial-fullpage .hangzhou-journey[data-compact=true] .march-bike-traveller {transform:translate(calc(-50% + 20px),-42px);}
+.imperial-fullpage .hangzhou-journey .march-summary {top:8px;left:52px;right:0;gap:8px;}
+.imperial-fullpage .hangzhou-journey .march-summary strong {font-size:20px;}
+.imperial-fullpage .hangzhou-journey .march-summary small {font-size:12px;}
+.hangzhou-journey[data-riding=true]:is([data-phase=waiting],[data-phase=bike],[data-phase=compact]) .hangzhou-map-frame {opacity:.2;pointer-events:none;}
+.imperial-fullpage .march-transport-preview {height:auto;min-height:48px;display:flex;flex-direction:row;gap:12px;padding:0;}
+.imperial-fullpage .march-transport-preview strong {font-size:16px;}
+.imperial-fullpage .march-transport-preview>span {font-size:12px;}
+.hangzhou-map-frame {position:relative;isolation:isolate;height:clamp(220px,38dvh,420px);min-height:220px;border:1px solid rgb(var(--border));border-radius:20px;overflow:hidden;transition:opacity 180ms var(--ease-out);}
+.hangzhou-map-surface {width:100%;height:100%;background:rgb(var(--surface-muted));touch-action:none;}
+.hangzhou-map-surface.leaflet-container {font-family:inherit;font-size:12px;}
+.hangzhou-map-label {font-size:12px;line-height:20px;color:rgb(var(--foreground));text-align:center;text-shadow:0 1px 2px rgb(var(--surface)),0 -1px 2px rgb(var(--surface));white-space:nowrap;pointer-events:none;}
+.hangzhou-map-controls {position:absolute;z-index:450;top:12px;right:12px;display:flex;flex-direction:column;border:1px solid rgb(var(--border));background:rgb(var(--surface));border-radius:14px;overflow:hidden;box-shadow:0 3px 8px rgb(var(--overlay)/.08);}
+.hangzhou-map-controls button {display:grid;place-items:center;min-width:44px;min-height:44px;color:rgb(var(--foreground));}
+.hangzhou-attribution {position:absolute;z-index:450;bottom:0;left:0;padding:4px 8px;background:rgb(var(--surface)/.95);color:rgb(var(--foreground));font-size:12px;line-height:1.5;border-radius:0 8px 0 0;max-width:100%;}
+.hangzhou-attribution summary {min-height:24px;display:flex;align-items:center;cursor:pointer;list-style:none;}
+.hangzhou-attribution a {text-decoration:underline;text-underline-offset:2px;}
+.hangzhou-route,.hangzhou-route-halo,.hangzhou-route-end {opacity:0;}
+.hangzhou-route {stroke-dasharray:1;stroke-dashoffset:1;}
+.hangzhou-map-frame:is([data-route-phase=route],[data-route-phase=arrived]) :is(.hangzhou-route,.hangzhou-route-halo,.hangzhou-route-end) {opacity:1;}
+.hangzhou-map-frame[data-route-phase=route] .hangzhou-route {stroke-dashoffset:0;transition:stroke-dashoffset 1400ms linear;}
+.hangzhou-map-frame[data-route-phase=arrived] .hangzhou-route {stroke-dashoffset:0;}
+.hangzhou-map-caption,.hangzhou-destination-note {font-size:12px;line-height:1.5;color:rgb(var(--muted-foreground));margin:0;}
+.hangzhou-map-error {position:absolute;inset:0;z-index:460;display:flex;gap:12px;align-items:center;justify-content:center;background:rgb(var(--surface)/.94);font-size:14px;}
+.hangzhou-map-error button {min-width:44px;min-height:44px;text-decoration:underline;}
+@media(max-width:350px){.imperial-fullpage .food-choice{grid-template-columns:76px minmax(0,1fr) 20px;gap:3px 8px;}.imperial-fullpage .food-choice>.court-illustration{width:76px;height:76px;}.imperial-fullpage .food-name{font-size:14px;}.imperial-fullpage .food-price{font-size:20px;}}
+@media(max-height:650px){.imperial-roof{max-height:56px;}.imperial-fullpage>.imperial-card-content{padding-top:16px;}.hangzhou-map-frame{height:230px;}.imperial-fullpage .travel-choices>button{min-height:60px;}}
+@media(prefers-reduced-motion:reduce){.character-shell,.hangzhou-map-frame,.hangzhou-route,.imperial-fullpage .march-bike-traveller,.imperial-fullpage .march-bike-traveller .travel-icon,.imperial-fullpage .march-summary{transition:none!important;}}
+
+/* Twelve choices remain full-width rows inside the existing scroll container. */
+.food-reference-note {margin:0 0 12px;font-size:12px;line-height:1.6;color:rgb(var(--muted-foreground));}
+.food-description>strong {display:block;font-weight:400;line-height:1.5;margin-bottom:3px;}
+.imperial-fullpage[data-card=kitchen] .food-choice {flex:none;min-height:150px;}
+.imperial-fullpage[data-card=kitchen]>.imperial-card-actions {flex-shrink:0;}

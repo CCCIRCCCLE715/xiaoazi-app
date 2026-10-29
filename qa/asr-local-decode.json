@@ -1,0 +1,33 @@
+{
+  "scope": "Historical synthetic decode fixtures for routing regression only; not current SenseVoice/device accuracy evidence.",
+  "rows": [
+    {
+      "label": "synthetic-guard",
+      "normalizedText": "黄白，你的稿子呢？"
+    },
+    {
+      "label": "synthetic-ride",
+      "normalizedText": "御驾亲蹬"
+    },
+    {
+      "label": "synthetic-negative",
+      "normalizedText": "不要 御驾亲征"
+    },
+    {
+      "label": "synthetic-quote",
+      "normalizedText": "他 说 黄 白 你 的 稿子 呢"
+    },
+    {
+      "label": "synthetic-free",
+      "normalizedText": "我 今天 想吃 不 落 的 饭"
+    },
+    {
+      "label": "synthetic-question",
+      "normalizedText": "御驾亲征 是 什么 意思"
+    },
+    {
+      "label": "silence",
+      "normalizedText": ""
+    }
+  ]
+}

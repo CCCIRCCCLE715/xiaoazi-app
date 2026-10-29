@@ -1,0 +1,37 @@
+[
+  {
+    "file": "SHERPA-LICENSE",
+    "url": "https://api.github.com/repos/k2-fsa/sherpa-onnx/contents/LICENSE?ref=v2.0.0",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "retrieved": "2026-10-25",
+    "note": "Preserved full official license text; upstream current file does not retroactively label2024 weight license"
+  },
+  {
+    "file": "ONNXRUNTIME-LICENSE",
+    "url": "https://api.github.com/repos/microsoft/onnxruntime/contents/LICENSE?ref=v1.28.2",
+    "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+    "retrieved": "2026-10-25",
+    "note": "Preserved full official license text; upstream current file does not retroactively label2024 weight license"
+  },
+  {
+    "file": "SENSEVOICE-UPSTREAM-LICENSE",
+    "url": "https://api.github.com/repos/FunAudioLLM/SenseVoice/contents/LICENSE",
+    "sha256": "4bc3bffe14ebe38cc67309991e04f92866835eac1c5e2e1abd37163f67c6de5f",
+    "retrieved": "2026-10-25",
+    "note": "Preserved full official license text; upstream current file does not retroactively label2024 weight license"
+  },
+  {
+    "file": "FUNASR-MODEL-LICENSE",
+    "url": "https://api.github.com/repos/modelscope/FunASR/contents/MODEL_LICENSE",
+    "sha256": "7dba975a2069691db4992b0592d70828b330d2f8a30a71450f4e152a554e84f8",
+    "retrieved": "2026-10-25",
+    "note": "Preserved full official license text; upstream current file does not retroactively label2024 weight license"
+  },
+  {
+    "file": "SILERO-LICENSE",
+    "url": "https://api.github.com/repos/snakers4/silero-vad/contents/LICENSE?ref=v5.1.2",
+    "sha256": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b",
+    "retrieved": "2026-10-25",
+    "note": "Preserved full official license text; upstream current file does not retroactively label2024 weight license"
+  }
+]

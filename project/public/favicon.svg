@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1254 1254" role="img" aria-labelledby="title desc">
+  <title id="title">小A子 App Logo</title>
+  <desc id="desc">白底、橙黄粉色五角海星，微弯白色竖眼，藏蓝小帽和红帽珠。全部图形由可编辑矢量路径和渐变组成。</desc>
+  <defs>
+    <linearGradient id="body-color" x1="624" y1="314" x2="624" y2="1145" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD43C"/>
+      <stop offset="0.26" stop-color="#FFB018"/>
+      <stop offset="0.63" stop-color="#FF712D"/>
+      <stop offset="1" stop-color="#FF7C35"/>
+    </linearGradient>
+    <radialGradient id="pink-center" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(639 876) scale(410 258)">
+      <stop offset="0" stop-color="#F74BC9"/>
+      <stop offset="0.37" stop-color="#FB57B1" stop-opacity="0.96"/>
+      <stop offset="0.7" stop-color="#FF697E" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#FF7139" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cap-color" x1="600" y1="218" x2="624" y2="363" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#153465"/>
+      <stop offset="1" stop-color="#0A2149"/>
+    </linearGradient>
+    <path id="body-shape" d="M624 314 C548 314 488 333 429 363 C375 387 332 410 319 455 C307 494 319 535 284 582 C255 621 199 645 159 685 C119 722 119 761 151 791 C184 821 234 841 259 881 C279 913 265 958 268 1007 C268 1084 313 1139 383 1144 C456 1150 499 1111 552 1062 C580 1036 600 1038 624 1038 C649 1038 670 1050 695 1074 C745 1121 790 1152 860 1144 C930 1136 978 1082 980 1009 C982 959 970 916 991 881 C1015 841 1067 820 1098 790 C1130 759 1126 722 1089 685 C1049 645 994 621 964 582 C930 536 942 493 929 455 C916 411 872 387 819 363 C760 333 700 314 624 314 Z"/>
+  </defs>
+  <rect id="white-background" width="1254" height="1254" fill="#FFFFFF"/>
+  <g id="mascot" transform="translate(75.24 75.24) scale(0.88)">
+    <g id="starfish-body">
+      <use href="#body-shape" fill="url(#body-color)"/>
+      <use href="#body-shape" fill="url(#pink-center)"/>
+    </g>
+    <g id="white-curved-eyes" fill="#FFFFFF">
+      <path id="left-eye" d="M528 522 C554 520 579 542 571 570 C561 605 560 642 566 677 C572 702 557 725 532 725 C508 725 493 711 488 688 C477 650 478 611 485 574 C491 545 503 524 528 522 Z"/>
+      <path id="right-eye" d="M708 522 C734 520 759 542 751 570 C741 605 740 642 746 677 C752 702 737 725 712 725 C688 725 673 711 668 688 C657 650 658 611 665 574 C671 545 683 524 708 522 Z"/>
+    </g>
+    <g id="navy-cap">
+      <path id="cap-dome" fill="#10274F" d="M467 244 C495 202 554 187 624 187 C694 187 753 202 781 244 C730 261 518 261 467 244 Z"/>
+      <path id="cap-brim" fill="url(#cap-color)" d="M414 276 C453 236 527 223 624 223 C721 223 795 236 834 276 C855 298 845 339 815 362 C759 331 693 314 624 314 C555 314 489 331 433 362 C403 339 393 298 414 276 Z"/>
+      <circle id="red-bead" cx="624" cy="145" r="46" fill="#F01824"/>
+      <path id="gold-bead-support" fill="#E5AC21" d="M595 177 C603 168 645 168 653 177 L653 190 L595 190 Z"/>
+    </g>
+  </g>
+</svg>

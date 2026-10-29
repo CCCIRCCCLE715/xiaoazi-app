@@ -1,0 +1,20 @@
+[
+  {
+    "file": "model.tar.bz2",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2",
+    "bytes": 163002883,
+    "sha256": "7d1efa2138a65b0b488df37f8b89e3d91a60676e416f515b952358d83dfd347e"
+  },
+  {
+    "file": "sherpa.aar",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.0/sherpa-onnx-2.0.0.aar",
+    "bytes": 49236482,
+    "sha256": "f0f8716982d27cb4ce695e3934018b1342d9d3d6fdb6ef1f1658fe8bad50b4fc"
+  },
+  {
+    "file": "mac-jni.tar.bz2",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.0/sherpa-onnx-v2.0.0-osx-arm64-jni.tar.bz2",
+    "bytes": 21969273,
+    "sha256": "4797e69722a32b52ba2837f391b8494449aae97245479c49f8ba014d87d71b7c"
+  }
+]

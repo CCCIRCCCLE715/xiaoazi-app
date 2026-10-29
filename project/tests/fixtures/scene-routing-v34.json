@@ -1,0 +1,369 @@
+{
+  "status": "planning_acceptance_cases_not_executed",
+  "date": "2026-10-25",
+  "scope": "Offline speech recognition and context-aware scene selection; implement in the authorized execution chat after its current work.",
+  "constraints": {
+    "canonicalCyclingPhrase": "御驾亲蹬",
+    "audioRecognition": "on_device_only",
+    "audioUpload": false,
+    "rawTranscriptPreserved": true,
+    "normalizationIsAcousticImprovement": false,
+    "deepSeekRole": "Optional existing text-only scene and slot classification; never receives recordings or supplies a free-form replacement for scene UI and animation.",
+    "phoneticCorrection": "Bounded phrase candidates with request and dialogue context. Do not globally replace 灯/登/征/膳 or rewrite quotations, negation, names, or unrelated statements.",
+    "retainBehavior": [
+      "hold_to_speak_release_to_send_once",
+      "minimum_1500ms_thinking",
+      "clean_reply_audio_tails",
+      "continuous_character_video_without_flash",
+      "generic_and_pork_three_food_voice_variants",
+      "human_confirms_external_orders"
+    ],
+    "modelCandidate": "SenseVoiceSmall INT8 via sherpa-onnx Android; compare against current Vosk on STEPX Neo before claiming an accuracy improvement.",
+    "recordingRetention": "No automatic disk persistence; evaluate live or with separately authorized local samples."
+  },
+  "verification": {
+    "textRegression": "All declared routing cases must pass production decision and dialogue-state paths, not duplicate regex tests alone.",
+    "realDevice": "Pending. Measure raw Chinese transcript error, final scene success, slot accuracy, release-to-result latency, and cold model load separately. Test actual user speech in quiet and normal room noise with music disabled during capture.",
+    "acousticAB": "Same consented local utterances or matched live repetitions for both models; include canonical, natural paraphrases, confusables, and non-command speech. Synthetic voice files and corrected text do not prove user speech accuracy.",
+    "noClaim": "No guaranteed accuracy percentage or completed device integration from these planning cases."
+  },
+  "cases": [
+    {
+      "id": "cycle-01",
+      "text": "御驾亲蹬",
+      "expected": {
+        "scene": "march",
+        "mode": "骑行",
+        "canonical": "御驾亲蹬"
+      }
+    },
+    {
+      "id": "cycle-02",
+      "text": "我要骑自行车去公司",
+      "expected": {
+        "scene": "march",
+        "mode": "骑行",
+        "destination": "公司"
+      }
+    },
+    {
+      "id": "cycle-03",
+      "text": "今天骑车去公司",
+      "expected": {
+        "scene": "march",
+        "mode": "骑行",
+        "destination": "公司"
+      }
+    },
+    {
+      "id": "cycle-04",
+      "text": "小A子，帮我导航，骑单车去公司",
+      "expected": {
+        "scene": "march",
+        "mode": "骑行",
+        "destination": "公司"
+      }
+    },
+    {
+      "id": "cycle-05",
+      "text": "今天低调一点，骑自行车去公司",
+      "expected": {
+        "scene": "march",
+        "mode": "骑行",
+        "destination": "公司"
+      }
+    },
+    {
+      "id": "travel-01",
+      "turns": [
+        {
+          "text": "我要去公司",
+          "expected": {
+            "scene": "march",
+            "ask": "陛下，今日如何出行？",
+            "showMap": false,
+            "pendingDestination": "公司"
+          }
+        },
+        {
+          "text": "御驾亲蹬",
+          "expected": {
+            "scene": "march",
+            "mode": "骑行",
+            "destination": "公司",
+            "showCyclingCard": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "phonetic-01",
+      "context": {
+        "waitingForTravelMode": true,
+        "destination": "公司"
+      },
+      "rawTranscript": "御驾亲灯",
+      "expected": {
+        "canonical": "御驾亲蹬",
+        "scene": "march",
+        "mode": "骑行",
+        "destination": "公司"
+      }
+    },
+    {
+      "id": "phonetic-02",
+      "context": {
+        "waitingForTravelMode": true,
+        "destination": "公司"
+      },
+      "rawTranscript": "玉驾亲登",
+      "expected": {
+        "canonical": "御驾亲蹬",
+        "scene": "march",
+        "mode": "骑行",
+        "destination": "公司"
+      }
+    },
+    {
+      "id": "phonetic-03",
+      "context": {
+        "waitingForTravelMode": true,
+        "destination": "公司"
+      },
+      "rawTranscript": "小A子，今天御驾亲灯吧",
+      "expected": {
+        "canonicalContains": "御驾亲蹬",
+        "scene": "march",
+        "mode": "骑行",
+        "destination": "公司"
+      }
+    },
+    {
+      "id": "phonetic-04",
+      "text": "御驾亲征是什么意思",
+      "expected": {
+        "doNotLaunchScene": true,
+        "doNotNormalizeToCycling": true
+      }
+    },
+    {
+      "id": "phonetic-05",
+      "text": "帮我打开客厅的灯",
+      "expected": {
+        "doNotSelectCycling": true
+      }
+    },
+    {
+      "id": "food-01",
+      "text": "用膳",
+      "expected": {
+        "scene": "kitchen",
+        "voiceVariant": "generic"
+      }
+    },
+    {
+      "id": "food-02",
+      "text": "朕要用膳了",
+      "expected": {
+        "scene": "kitchen",
+        "voiceVariant": "generic"
+      }
+    },
+    {
+      "id": "food-03",
+      "text": "吃饭",
+      "expected": {
+        "scene": "kitchen",
+        "voiceVariant": "generic"
+      }
+    },
+    {
+      "id": "food-04",
+      "text": "该吃饭了",
+      "expected": {
+        "scene": "kitchen",
+        "voiceVariant": "generic"
+      }
+    },
+    {
+      "id": "food-05",
+      "text": "外卖",
+      "expected": {
+        "scene": "kitchen",
+        "voiceVariant": "generic"
+      }
+    },
+    {
+      "id": "food-06",
+      "text": "给我点个外卖",
+      "expected": {
+        "scene": "kitchen",
+        "voiceVariant": "generic"
+      }
+    },
+    {
+      "id": "food-07",
+      "text": "我有点饿了，帮我弄点吃的",
+      "expected": {
+        "scene": "kitchen",
+        "voiceVariant": "generic"
+      }
+    },
+    {
+      "id": "food-08",
+      "text": "中午吃什么好",
+      "expected": {
+        "scene": "kitchen",
+        "voiceVariant": "generic"
+      }
+    },
+    {
+      "id": "food-09",
+      "text": "小A子，给朕弄份猪脚饭，三十以内，送公司",
+      "expected": {
+        "scene": "kitchen",
+        "budget": 30,
+        "address": "公司",
+        "voiceVariant": "pork-three"
+      }
+    },
+    {
+      "id": "food-10",
+      "text": "帮我点一份午饭，不要辣，三十块以内，送到公司",
+      "expected": {
+        "scene": "kitchen",
+        "budget": 30,
+        "address": "公司",
+        "taste": "不要辣",
+        "notNegated": true
+      }
+    },
+    {
+      "id": "food-11",
+      "text": "今天不骑车了，先点外卖",
+      "expected": {
+        "scene": "kitchen",
+        "doNotSelectCycling": true
+      }
+    },
+    {
+      "id": "food-12",
+      "context": {
+        "waitingForTravelMode": true,
+        "destination": "公司"
+      },
+      "text": "先不出门了，帮我点外卖",
+      "expected": {
+        "scene": "kitchen",
+        "clearPendingTravel": true
+      }
+    },
+    {
+      "id": "negative-01",
+      "text": "不要点外卖",
+      "expected": {
+        "doNotSelectKitchen": true
+      }
+    },
+    {
+      "id": "negative-02",
+      "text": "今天不想吃饭",
+      "expected": {
+        "doNotSelectKitchen": true
+      }
+    },
+    {
+      "id": "negative-03",
+      "text": "不要骑车，帮我点饭",
+      "expected": {
+        "scene": "kitchen",
+        "doNotSelectCycling": true
+      }
+    },
+    {
+      "id": "negative-04",
+      "text": "骑车去公司，不要点外卖",
+      "expected": {
+        "scene": "march",
+        "mode": "骑行",
+        "destination": "公司",
+        "doNotSelectKitchen": true
+      }
+    },
+    {
+      "id": "negative-05",
+      "text": "御驾亲蹬这句话怎么读",
+      "expected": {
+        "doNotLaunchScene": true
+      }
+    },
+    {
+      "id": "negative-06",
+      "text": "他说他想吃饭",
+      "expected": {
+        "doNotSelectKitchen": true
+      }
+    },
+    {
+      "id": "negative-07",
+      "text": "外卖员刚打过电话",
+      "expected": {
+        "doNotSelectKitchenAutomatically": true
+      }
+    },
+    {
+      "id": "negative-08",
+      "text": "我想吃饭再骑车去公司",
+      "expected": {
+        "askOrderOrExecuteFoodFirst": true,
+        "doNotChooseByFirstRegexMatchAlone": true
+      }
+    },
+    {
+      "id": "negative-09",
+      "text": "你刚才说御驾亲灯",
+      "expected": {
+        "doNotLaunchScene": true,
+        "preserveRawTranscript": true
+      }
+    },
+    {
+      "id": "cross-01",
+      "text": "明天八点叫我起床",
+      "expected": {
+        "scene": "morning",
+        "day": "明天",
+        "time": "08:00"
+      }
+    },
+    {
+      "id": "cross-02",
+      "text": "黄白，你的稿子呢？",
+      "expected": {
+        "scene": "protect"
+      }
+    },
+    {
+      "id": "cross-03",
+      "text": "帮我列出今天的待办",
+      "expected": {
+        "scene": "todo"
+      }
+    },
+    {
+      "id": "cross-04",
+      "text": "我想听歌",
+      "expected": {
+        "scene": "music"
+      }
+    },
+    {
+      "id": "cross-05",
+      "text": "甲方又发要求了",
+      "expected": {
+        "scene": "work",
+        "showCard": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "applicationId": "com.xiaoazi.standalone",
+  "name": "皇上模拟器",
+  "version": "0.7.10",
+  "versionCode": 37,
+  "entry": "web/index.html",
+  "description": "小A子陪陛下下旨办事：御膳房传膳、早朝议事、礼部批奏折。",
+  "orientation": "portrait",
+  "fullscreen": false,
+  "permissions": []
+}
