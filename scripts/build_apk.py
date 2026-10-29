@@ -2,11 +2,6 @@ from pathlib import Path
 import subprocess, shutil, zipfile, hashlib, json, os, re
 import xml.etree.ElementTree as ET
 root=Path(__file__).resolve().parents[1]
-manifest=ET.parse(root/'android/AndroidManifest.xml').getroot()
-android_ns='{http://schemas.android.com/apk/res/android}'
-application_id=manifest.attrib['package']
-version_code=manifest.attrib[android_ns+'versionCode']
-version_name=manifest.attrib[android_ns+'versionName']
 sdk=Path(os.environ.get('ANDROID_HOME') or os.environ.get('ANDROID_SDK_ROOT') or '')
 if not Path(os.environ.get('ANDROID_PLATFORM_JAR', str(sdk/'platforms/android-35/android.jar'))).is_file():
     raise SystemExit('Set ANDROID_HOME to an SDK with platforms;android-35 and build-tools;35.0.0')
@@ -18,6 +13,21 @@ javac=jdk/('javac.exe' if os.name=='nt' else 'javac')
 aapt2=bt/('aapt2.exe' if os.name=='nt' else 'aapt2')
 zipalign=bt/('zipalign.exe' if os.name=='nt' else 'zipalign')
 android=root/'android'; build=android/'build';build.mkdir(exist_ok=True)
+ns='http://schemas.android.com/apk/res/android'
+ET.register_namespace('android',ns)
+manifest=android/'AndroidManifest.xml'
+tree=ET.parse(manifest);document=tree.getroot()
+version_code=document.attrib[f'{{{ns}}}versionCode'];version_name=document.attrib[f'{{{ns}}}versionName']
+application_id=document.attrib['package']
+verification=os.environ.get('XIAOAZI_TEST_BUILD')=='1'
+if verification:
+    original_id=application_id;application_id+='.verification';document.set('package',application_id)
+    app=document.find('application');app.set(f'{{{ns}}}label','小 A 子·验证版');app.set(f'{{{ns}}}debuggable','true')
+    for activity in app.findall('activity'):
+        name=activity.get(f'{{{ns}}}name')
+        if name.startswith('.'):activity.set(f'{{{ns}}}name',original_id+name)
+    manifest=build/'verification-manifest.xml';tree.write(manifest,encoding='utf-8',xml_declaration=True)
+artifact_name=f'xiaoazi-{version_name}'+('-verification' if verification else '')
 web=root/'project/dist-standalone'
 assert (web/'index.html').is_file(), 'Build frontend first'
 def clone_file(source,dest):
@@ -47,7 +57,7 @@ shutil.copy2(model/'LICENSE',licenses/'model-archive-LICENSE');shutil.copy2(mode
 res=build/'resources.zip'
 run(aapt2,'compile','--dir',android/'res','-o',res)
 raw=build/'unsigned.apk'
-run(aapt2,'link','-o',raw,'-I',platform,'--manifest',android/'AndroidManifest.xml','--min-sdk-version','26','--target-sdk-version','35','--version-code',version_code,'--version-name',version_name,'-A',assets,'-0','wav','-0','mp3','-0','m4a','-0','mp4','-0','webm','-0','png','-0','webp','-0','html','-0','js','-0','mjs','-0','bcmap','-0','txt','-0','json','-0','css','-0','svg','-0','onnx','-0','zip',res)
+run(aapt2,'link','-o',raw,'-I',platform,'--manifest',manifest,'--min-sdk-version','26','--target-sdk-version','35','--version-code',version_code,'--version-name',version_name,'-A',assets,'-0','wav','-0','mp3','-0','m4a','-0','mp4','-0','webm','-0','png','-0','webp','-0','html','-0','js','-0','mjs','-0','bcmap','-0','txt','-0','json','-0','css','-0','svg','-0','onnx','-0','zip',res)
 with zipfile.ZipFile(raw,'a') as z:
     for path in sorted(dex.glob('*.dex')):z.write(path,path.name)
     for abi in ['arm64-v8a']:
@@ -69,11 +79,11 @@ raw=compressed
 aligned=build/'aligned.apk'
 run(zipalign,'-f','4',raw,aligned)
 raw.unlink() # Aligned intermediate is now the sole signing input.
-out=build/f'xiaoazi-{version_name}-unsigned.apk'
+out=build/(artifact_name+'-unsigned.apk')
 shutil.move(aligned,out)
 key=os.environ.get('XIAOAZI_KEYSTORE')
 if key:
-    signed=build/f'xiaoazi-{version_name}-signed.apk'
+    signed=build/(artifact_name+'-signed.apk')
     run(java,'-jar',bt/'lib/apksigner.jar','sign','--ks',key,'--ks-key-alias',os.environ['XIAOAZI_KEY_ALIAS'],'--ks-pass','env:XIAOAZI_STORE_PASSWORD','--key-pass','env:XIAOAZI_KEY_PASSWORD','--min-sdk-version','26','--v4-signing-enabled','false','--out',signed,out)
     run(java,'-jar',bt/'lib/apksigner.jar','verify','--verbose',signed)
     out=signed
@@ -96,6 +106,6 @@ badging=subprocess.check_output([str(aapt2),'dump','badging',str(out)],text=True
 identity=re.search(r"package: name='([^']+)' versionCode='([^']+)' versionName='([^']+)'",badging)
 assert identity and identity.groups()==(application_id,version_code,version_name)
 assert "minSdkVersion:'26'" in badging and "targetSdkVersion:'35'" in badging
-metadata={'applicationId':identity[1],'versionName':identity[3],'versionCode':int(identity[2]),'apk':out.name,'bytes':out.stat().st_size,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'signed':bool(key),'physicalDeviceVerified':False}
+metadata={'applicationId':identity[1],'versionName':identity[3],'versionCode':int(identity[2]),'apk':out.name,'bytes':out.stat().st_size,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'signed':bool(key),'verificationBuild':verification,'physicalDeviceVerified':False}
 (build/'apk-metadata.json').write_text(json.dumps(metadata,indent=2)+'\n')
 print(json.dumps(metadata,indent=2))

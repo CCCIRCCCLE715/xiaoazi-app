@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
     s.setMediaPlaybackRequiresUserGesture(false);
     s.setSupportMultipleWindows(false);
     s.setJavaScriptCanOpenWindowsAutomatically(false);
-    WebView.setWebContentsDebuggingEnabled(false);
+    WebView.setWebContentsDebuggingEnabled((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE)!=0);
     web.setBackgroundColor(Color.TRANSPARENT);
     web.setWebChromeClient(new WebChromeClient(){
       @Override public Bitmap getDefaultVideoPoster(){return Bitmap.createBitmap(1,1,Bitmap.Config.ARGB_8888);}
@@ -172,6 +172,6 @@ public class MainActivity extends Activity {
     web.evaluateJavascript("document.querySelectorAll('audio,video').forEach(m=>m.pause());window.dispatchEvent(new Event('xiaoazi:pause'));",null);
     web.onPause();web.pauseTimers();super.onPause();
   }
-  @Override protected void onResume(){super.onResume();if(assistant!=null)assistant.resume();if(web!=null){web.resumeTimers();web.onResume();}}
+  @Override protected void onResume(){super.onResume();if(assistant!=null)assistant.resume();if(web!=null){web.resumeTimers();web.onResume();web.evaluateJavascript("window.dispatchEvent(new Event('xiaoazi:resume'));",null);}}
   @Override protected void onDestroy(){if(assistant!=null)assistant.destroy();audioSelection.cancel();fileWorker.shutdownNow();diagnosticExport=null;if(web!=null){web.stopLoading();web.destroy();web=null;}super.onDestroy();}
 }

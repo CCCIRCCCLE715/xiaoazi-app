@@ -75,7 +75,7 @@ export function CharacterStage({action,nonce=0,voiceCue,className,onActionEnd,on
   });player.current=renderer
   let cancelled=false
   const image=new Image();image.src=idlePoster
-  void image.decode().then(()=>{if(cancelled||Number(canvas.dataset.frames)>0)return;const context=canvas.getContext('2d')!;context.globalCompositeOperation='copy';context.drawImage(image,0,0,1440,1440);if(canvas.parentElement)canvas.parentElement.dataset.painted='true';posterReady.current=true;if(window.matchMedia('(prefers-reduced-motion: reduce)').matches&&latestCue.current){voice.current?.frame(latestCue.current.action);callbacks.current.onFrame?.(latestCue.current.action)}}).catch(()=>undefined)
+  void image.decode().then(()=>{if(cancelled||Number(canvas.dataset.frames)>0)return;const context=canvas.getContext('2d')!;context.globalCompositeOperation='copy';context.drawImage(image,0,0,canvas.width,canvas.height);if(canvas.parentElement)canvas.parentElement.dataset.painted='true';posterReady.current=true;if(window.matchMedia('(prefers-reduced-motion: reduce)').matches&&latestCue.current){voice.current?.frame(latestCue.current.action);callbacks.current.onFrame?.(latestCue.current.action)}}).catch(()=>undefined)
   return()=>{cancelled=true;renderer.dispose();player.current=null}
  },[])
  useEffect(()=>{
@@ -86,7 +86,7 @@ export function CharacterStage({action,nonce=0,voiceCue,className,onActionEnd,on
  },[action,nonce,sequenceNext,restartPoint,restartAction,voiceCue?.id])
  return <><div className={cn('character-renderer',className)} aria-hidden>
   <img src={idlePoster} alt="" className="character-initial" />
-  <canvas ref={canvasRef} width={1440} height={1440} className="character-canvas" />
+  <canvas ref={canvasRef} width={720} height={720} className="character-canvas" />
   {[decoderA,decoderB].map((ref,index)=><video key={index} ref={ref} muted playsInline controls={false} preload="auto" disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" tabIndex={-1} className="character-decoder" />)}
   <audio ref={audioRef} data-scene-audio preload="auto" hidden />
  </div>
