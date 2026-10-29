@@ -1,12 +1,12 @@
 # 小 A 子 App
 
-小 A 子是一个以宫廷角色对话为入口的 Android 应用，包含语音交互、待办奏折、文档导入、点餐演示、出行演示和角色动画。本仓库对应 **0.7.10 / versionCode 37**，应用 ID 为 `com.xiaoazi.standalone`。
+小 A 子是一个以宫廷角色对话为入口的 Android 应用，包含语音交互、待办奏折、文档导入、点餐演示、出行演示和角色动画。当前修复版为 **0.7.11 / versionCode 38**，基于 0.7.10 / versionCode 37 的源码发布，应用 ID 为 `com.xiaoazi.standalone`。
 
 Web 前端和 Android 原生层的完整源码都在这里。角色视频、音频、图片及离线识别模型放在同版本 GitHub Release 中，下载脚本会按提交内的 SHA256 清单还原；仓库没有引用开发者电脑上的共享目录。
 
 ## 获取与运行
 
-需要 Node.js 22.13 或更新版本（pnpm 11 的要求）、pnpm 11.25.0、Python 3.10 或更新版本。运行音频回归测试还需要命令行可用的 FFmpeg。
+需要 Node.js 22.13 或更新版本（pnpm 11 的要求）、pnpm 11.25.0、Python 3.10 或更新版本。构建手机角色素材和运行媒体回归测试还需要命令行可用的 FFmpeg、ffprobe（含 libvpx-vp9）。
 
 ```sh
 git clone https://github.com/CCCIRCCCLE715/xiaoazi-app.git
@@ -41,13 +41,25 @@ python3 scripts/build_apk.py
 python3 scripts/check_native.py
 ```
 
-构建脚本读取 `project/dist-standalone`，输出 `android/build/xiaoazi-0.7.10-unsigned.apk`。它使用 SDK 的 aapt2、D8 和 zipalign；本仓库没有 Gradle 工程或 Gradle Wrapper。若构建工具不在默认目录，可设置 `ANDROID_BUILD_TOOLS` 为该目录的完整路径。
+构建脚本读取 `project/dist-standalone`，输出 `android/build/xiaoazi-0.7.11-unsigned.apk`。它使用 SDK 的 aapt2、D8 和 zipalign；本仓库没有 Gradle 工程或 Gradle Wrapper。若构建工具不在默认目录，可设置 `ANDROID_BUILD_TOOLS` 为该目录的完整路径。
 
-安装 APK 前需要签名。设置 `XIAOAZI_KEYSTORE`、`XIAOAZI_KEY_ALIAS`、`XIAOAZI_STORE_PASSWORD`、`XIAOAZI_KEY_PASSWORD` 后重新运行构建脚本，会额外输出并验证 `xiaoazi-0.7.10-signed.apk`。请使用自己的签名材料。原交付版的私钥未公开。需要覆盖更新原版时，请向项目所有者私下获取原 keystore 及签名配置；不要把它们提交到 Git 或上传到公开 Release。使用另一把新签名的 APK，需要卸载旧版后安装，不能保留原签名身份直接更新。
+安装 APK 前需要签名。设置 `XIAOAZI_KEYSTORE`、`XIAOAZI_KEY_ALIAS`、`XIAOAZI_STORE_PASSWORD`、`XIAOAZI_KEY_PASSWORD` 后重新运行构建脚本，会额外输出并验证 `xiaoazi-0.7.11-signed.apk`。请使用自己的签名材料。原交付版的私钥未公开。需要覆盖更新原版时，请向项目所有者私下获取原 keystore 及签名配置；不要把它们提交到 Git 或上传到公开 Release。使用另一把新签名的 APK，需要卸载旧版后安装，不能保留原签名身份直接更新。
 
 后续发布更新应增加 `versionCode`，例如由 37 升为 38，版本名改为 `0.7.11`。构建脚本从 `android/AndroidManifest.xml` 的 `android:versionCode`、`android:versionName` 读取打包版本，输出名和校验也使用这两个值；请同步修改 `project/package.json` 的 `version` 及 `project/capsule/manifest.json` 的 `version`、`versionCode`。版本为 0.7.11 时，签名输出为 `android/build/xiaoazi-0.7.11-signed.apk`。
 
 构建脚本会在 Windows 使用 Java 和 Android 工具的 `.exe` 文件名。本地编译与脚本检查在 macOS 完成，尚未验证 Windows 或 Linux 上的完整打包。
+
+## 0.7.11 时间与负载修复
+
+晨起页面固定显示 `09:00`，不随系统时间或入口参数变化；原有进入五秒后播放、向右滑动结束的流程保留。
+
+角色在菜单遮挡、原生宿主暂停或页面隐藏时停止绘制，并释放视频源，避免部分 Android WebView 在视频暂停后仍持续重绘。回来后恢复原位置；动作切换只在新动作首帧就绪后释放旧解码器。多个暂停原因独立管理，关闭菜单不会误恢复仍在后台的页面。
+
+`pnpm build` 和 `pnpm dev` 会先用 `scripts/prepare_mobile_media.py` 生成 720×720 的透明角色视频，保存在 `.cache/mobile-media/`。原始 1440 像素素材与音频不修改；生成时校验帧数、时长和透明标记，回归测试还检查透明像素。画布也改为 720×720，页面尺寸和角色位置保留。需要对照原始素材时可在构建或启动前设置 `XIAOAZI_ORIGINAL_MEDIA=1`。
+
+原版签名未就绪时，可设置 `XIAOAZI_TEST_BUILD=1` 构建独立的 `com.xiaoazi.standalone.verification`，显示为“小 A 子·验证版”，不覆盖原版数据。该包可调试，仅供验证；默认正式包仍不可调试。验证包也需使用自己的测试签名。签名私钥和密码不得提交到仓库。
+
+实测及未完成范围见 [修复验证记录](qa/playback-fix-2026-10-29.md)。系统底层重启的根因尚未确证，性能改善不等于已经消除随机重启。
 
 ## 目录与配置
 

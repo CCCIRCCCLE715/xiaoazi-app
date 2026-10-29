@@ -28,8 +28,8 @@ export function DepartmentMenu({active,onOpening,onSelect}:{active?:Department;o
     node.style.opacity='';panel.style.transform=''
     return{get playState(){return a.playState},finished:Promise.all([a.finished,p.finished]),cancel(){a.cancel();p.cancel()}}
    },
-  },()=>current.current.onOpening(),setExpanded)
-  return()=>{controller.current?.dispose();controller.current=null}
+  },()=>current.current.onOpening(),value=>{setExpanded(value);window.dispatchEvent(new CustomEvent('xiaoazi:menu-state',{detail:value}))})
+  return()=>{controller.current?.dispose();controller.current=null;window.dispatchEvent(new CustomEvent('xiaoazi:menu-state',{detail:false}))}
  },[])
  const close=(keyboard:boolean)=>{outsideDown.current=undefined;controller.current?.close(keyboard,reduced())}
  return <>

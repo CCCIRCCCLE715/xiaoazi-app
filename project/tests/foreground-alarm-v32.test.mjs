@@ -36,9 +36,13 @@ for(const event of ['unmount','xiaoazi:pause','hidden','pagehide'])test(event+' 
 test('leaving during playback pauses and resets the audio',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});const h=setupPage('MorningPage');t.mock.timers.tick(5000);await flush();assert.equal(h.audio.paused,false);h.audio.currentTime=2;h.close();assert.equal(h.audio.paused,true);assert.equal(h.audio.currentTime,0);t.mock.timers.reset()
 })
-test('explicit time is displayed; waiting and ringing cannot use the back button',async t=>{
+test('alarm stays at 09:00 despite an explicit requested time; waiting and ringing cannot use the back button',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});const h=setupPage('MorningPage',async()=>{},'time=08%3A05')
- try{h.render();assert.match(h.text(),/08:05/);assert.equal(h.find(e=>e.props?.['aria-label']==='返回对话').props.disabled,true);t.mock.timers.tick(5000);await flush();h.render();assert.match(h.text(),/08:05/);assert.equal(h.find(e=>e.props?.['aria-label']==='返回对话').props.disabled,true)}finally{h.close();t.mock.timers.reset()}
+ try{h.render();assert.equal(h.find(e=>e.type==='time').props.children,'09:00');assert.equal(h.find(e=>e.props?.['aria-label']==='返回对话').props.disabled,true);t.mock.timers.tick(5000);await flush();h.render();assert.equal(h.find(e=>e.type==='time').props.children,'09:00');assert.equal(h.find(e=>e.props?.['aria-label']==='返回对话').props.disabled,true)}finally{h.close();t.mock.timers.reset()}
+})
+test('alarm without a requested time remains at 09:00 when the system clock advances',async t=>{
+ t.mock.timers.enable({apis:['setTimeout','setInterval','Date'],now:Date.parse('2026-10-29T05:47:00Z')});const h=setupPage('MorningPage')
+ try{assert.equal(h.find(e=>e.type==='time').props.children,'09:00');t.mock.timers.tick(65000);await flush();h.render();assert.equal(h.find(e=>e.type==='time').props.children,'09:00')}finally{h.close();t.mock.timers.reset()}
 })
 for(const [text,time]of [['帮我设置一个闹铃',undefined],['叫我起床',undefined],['明天早上八点叫醒我','08:00'],['星期五八点叫我起床','08:00'],['十分钟后叫醒我',undefined]])test(text+' routes locally after 2 seconds to the same page without a scheduled task',async()=>{
  const clocked=clock();let native=0,cloud=0;const h=setup(async()=>{cloud++},{nativeRequest:async()=>native++},clocked);const p=h.render().submit(text);await flush();await clocked.advance(1999);assert.equal(h.render().alarmRequest,undefined);await clocked.advance(1);await p;const c=h.render();assert.equal(c.alarmRequest?.time,time);assert.equal(typeof c.alarmRequest?.id,'number');assert.equal(c.card,undefined);assert.equal(c.context.pending,false);assert.equal(c.voiceCue,undefined);await h.render().approve();assert.equal(cloud,0);assert.equal(native,0);h.unmount()

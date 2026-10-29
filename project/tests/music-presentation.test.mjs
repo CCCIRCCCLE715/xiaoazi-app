@@ -10,12 +10,13 @@ const {createCharacterPlayer}=await import('data:text/javascript;base64,'+Buffer
 function setup(t,kind='music'){
  const action=kind==='todo'?'ending-apology':'music-tap',clipSource=kind==='todo'?'todo.webm':'music.webm',voiceDuration=kind==='todo'?8.743991:10.498798
  t.mock.timers.enable({apis:['setTimeout','setInterval']});let now=0,request=0
- const saved={document:globalThis.document,performance:globalThis.performance,cancelAnimationFrame:globalThis.cancelAnimationFrame}
+ const saved={document:globalThis.document,window:globalThis.window,performance:globalThis.performance,cancelAnimationFrame:globalThis.cancelAnimationFrame}
  const doc=new EventTarget();doc.hidden=false;doc.baseURI='https://app.local/'
  const pixels=new Uint8ClampedArray(48*48*4);for(let i=100;i<48*48;i++)pixels[i*4+3]=255
- doc.createElement=()=>({getContext:()=>({drawImage(){},getImageData:()=>({data:pixels})})});globalThis.document=doc;globalThis.performance={now:()=>now};globalThis.cancelAnimationFrame=()=>{}
+ doc.createElement=()=>({getContext:()=>({drawImage(){},getImageData:()=>({data:pixels})})});globalThis.document=doc;globalThis.window=new EventTarget();globalThis.performance={now:()=>now};globalThis.cancelAnimationFrame=()=>{}
  class Media extends EventTarget{
   src='';currentSrc='';currentTime=0;duration=30;readyState=0;videoWidth=1440;videoHeight=1440;paused=true;loop=false;plays=0;dataset={};volume=1
+  removeAttribute(name){if(name==='src')this.src=''}
   load(){this.currentTime=0;this.readyState=0;this.currentSrc=new URL(this.src,doc.baseURI).href}
   decode(){this.readyState=2;this.dispatchEvent(new Event('loadeddata'));this.dispatchEvent(new Event('canplay'))}
   play(){this.plays++;this.paused=false;this.dispatchEvent(new Event('playing'));return Promise.resolve()}
